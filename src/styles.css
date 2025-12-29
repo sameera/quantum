@@ -1,0 +1,280 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    height: 100%;
+    overflow: hidden;
+}
+
+.no-highlight:hover,
+.no-highlight:active,
+.no-highlight:focus {
+    background-color: inherit !important;
+    outline: none !important;
+}
+
+@layer base {
+    :root {
+        --background: 260 20% 4%;
+        --foreground: 210 20% 98%;
+        --card: 260 20% 4%;
+        --card-foreground: 210 20% 98%;
+        --popover: 260 20% 4%;
+        --popover-foreground: 210 20% 98%;
+        --secondary: 260 10% 15%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 260 10% 15%;
+        --muted-foreground: 260 10% 65%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 260 10% 15%;
+        --input: 260 10% 15%;
+        --radius: 0.5rem;
+
+        /* Default Theme: Purple */
+        --primary: 270 95% 60%;
+        --primary-foreground: 0 0% 100%;
+        --accent: 270 95% 60%;
+        --accent-foreground: 0 0% 100%;
+        --ring: 270 95% 60%;
+        --surface-app: linear-gradient(to bottom, hsl(var(--primary) / 0.0375), hsl(var(--primary) / 0.1125));
+        --surface-nav: linear-gradient(to bottom, hsl(var(--primary) / 0.0375), hsl(var(--primary) / 0.1125));
+        --surface-sidebar: linear-gradient(to bottom, hsl(var(--primary) / 0.0375), hsl(var(--primary) / 0.1125));
+    }
+
+    .light {
+        --background: 0 0% 100%;
+        --foreground: 260 10% 3.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 260 10% 3.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 260 10% 3.9%;
+        --secondary: 270 10% 96%;
+        --secondary-foreground: 260 10% 10%;
+        --muted: 270 10% 96%;
+        --muted-foreground: 260 5% 46%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 260 10% 90%;
+        --input: 260 10% 90%;
+
+        /* Default Theme: Purple */
+        --primary: 270 95% 60%;
+        --primary-foreground: 0 0% 100%;
+        --accent: 270 95% 60%;
+        --accent-foreground: 0 0% 100%;
+        --ring: 270 95% 60%;
+        --surface-app: linear-gradient(to bottom, #ffffff, hsl(var(--primary) / 0.1));
+        --surface-nav: linear-gradient(to bottom, #ffffff, hsl(var(--primary) / 0.1));
+        --surface-sidebar: linear-gradient(to bottom, #ffffff, hsl(var(--primary) / 0.1));
+    }
+}
+
+/* Theme Overrides */
+.theme-green {
+    --primary: 142 76% 36%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --accent: 142 76% 36%;
+    --accent-foreground: 355.7 100% 97.3%;
+    --ring: 142 76% 36%;
+}
+
+.theme-blue {
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --accent: 221.2 83.2% 53.3%;
+    --accent-foreground: 210 40% 98%;
+    --ring: 221.2 83.2% 53.3%;
+}
+
+.theme-purple {
+    --primary: 270 95% 60%;
+    --primary-foreground: 0 0% 100%;
+    --accent: 270 95% 60%;
+    --accent-foreground: 0 0% 100%;
+    --ring: 270 95% 60%;
+}
+
+.theme-navy {
+    --primary: 199 95% 60%; /* #38bdf8 */
+    --primary-foreground: 222 47% 11%;
+    --accent: 199 95% 60%;
+    --accent-foreground: 222 47% 11%;
+    --ring: 199 95% 60%;
+}
+
+/* --- Theme Background Overrides --- */
+
+/* Green Theme */
+.dark.theme-green {
+    --background: 142 40% 4%;
+    --foreground: 142 10% 98%;
+    --card: 142 40% 6%;
+    --card-foreground: 142 10% 98%;
+    --popover: 142 40% 6%;
+    --popover-foreground: 142 10% 98%;
+    --secondary: 142 20% 15%;
+    --secondary-foreground: 142 10% 98%;
+    --muted: 142 20% 15%;
+    --muted-foreground: 142 10% 65%;
+    --border: 142 20% 15%;
+    --input: 142 20% 15%;
+
+    --surface-app: linear-gradient(to bottom, hsl(var(--primary) / 0.0375), hsl(var(--primary) / 0.1125));
+    --surface-nav: linear-gradient(to bottom, hsl(var(--primary) / 0.0375), hsl(var(--primary) / 0.1125));
+    --surface-sidebar: linear-gradient(to bottom, hsl(var(--primary) / 0.0375), hsl(var(--primary) / 0.1125));
+}
+
+.light.theme-green {
+    --background: 142 30% 98%;
+    --foreground: 142 40% 5%;
+    --card: 0 0% 100%;
+    --card-foreground: 142 40% 5%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 142 40% 5%;
+    --secondary: 142 30% 94%;
+    --secondary-foreground: 142 40% 10%;
+    --muted: 142 30% 94%;
+    --muted-foreground: 142 10% 40%;
+    --border: 142 20% 90%;
+    --input: 142 20% 90%;
+
+    --surface-app: linear-gradient(to bottom, #ffffff, hsl(var(--primary) / 0.1));
+    --surface-nav: linear-gradient(to bottom, #ffffff, hsl(var(--primary) / 0.1));
+    --surface-sidebar: linear-gradient(to bottom, #ffffff, hsl(var(--primary) / 0.1));
+}
+
+/* Blue Theme */
+.dark.theme-blue {
+    --background: 221 40% 4%;
+    --foreground: 221 10% 98%;
+    --card: 221 40% 6%;
+    --card-foreground: 221 10% 98%;
+    --popover: 221 40% 6%;
+    --popover-foreground: 221 10% 98%;
+    --secondary: 221 20% 15%;
+    --secondary-foreground: 221 10% 98%;
+    --muted: 221 20% 15%;
+    --muted-foreground: 221 10% 65%;
+    --border: 221 20% 15%;
+    --input: 221 20% 15%;
+
+    --surface-app: linear-gradient(to bottom, hsl(var(--primary) / 0.0375), hsl(var(--primary) / 0.1125));
+    --surface-nav: linear-gradient(to bottom, hsl(var(--primary) / 0.0375), hsl(var(--primary) / 0.1125));
+    --surface-sidebar: linear-gradient(to bottom, hsl(var(--primary) / 0.0375), hsl(var(--primary) / 0.1125));
+}
+
+.light.theme-blue {
+    --background: 221 30% 98%;
+    --foreground: 221 40% 5%;
+    --card: 0 0% 100%;
+    --card-foreground: 221 40% 5%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 221 40% 5%;
+    --secondary: 221 30% 94%;
+    --secondary-foreground: 221 40% 10%;
+    --muted: 221 30% 94%;
+    --muted-foreground: 221 10% 40%;
+    --border: 221 20% 90%;
+    --input: 221 20% 90%;
+
+    --surface-app: linear-gradient(to bottom, #ffffff, hsl(var(--primary) / 0.1));
+    --surface-nav: linear-gradient(to bottom, #ffffff, hsl(var(--primary) / 0.1));
+    --surface-sidebar: linear-gradient(to bottom, #ffffff, hsl(var(--primary) / 0.1));
+}
+
+/* Purple Theme (Explicit overrides to ensure consistency) */
+.dark.theme-purple {
+    --background: 260 20% 4%;
+    --foreground: 210 20% 98%;
+    --card: 260 20% 4%;
+    --card-foreground: 210 20% 98%;
+    --popover: 260 20% 4%;
+    --popover-foreground: 210 20% 98%;
+    --secondary: 260 10% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 260 10% 15%;
+    --muted-foreground: 260 10% 65%;
+    --border: 260 10% 15%;
+    --input: 260 10% 15%;
+
+    --surface-app: linear-gradient(to bottom, hsl(var(--primary) / 0.0375), hsl(var(--primary) / 0.1125));
+    --surface-nav: linear-gradient(to bottom, hsl(var(--primary) / 0.0375), hsl(var(--primary) / 0.1125));
+    --surface-sidebar: linear-gradient(to bottom, hsl(var(--primary) / 0.0375), hsl(var(--primary) / 0.1125));
+}
+
+.light.theme-purple {
+    --background: 270 20% 99%; /* Slight purple tint instead of pure white */
+    --foreground: 260 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 260 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 260 10% 3.9%;
+    --secondary: 270 10% 96%;
+    --secondary-foreground: 260 10% 10%;
+    --muted: 270 10% 96%;
+    --muted-foreground: 260 5% 46%;
+    --border: 260 10% 90%;
+    --input: 260 10% 90%;
+
+    --surface-app: linear-gradient(to bottom, #ffffff, hsl(var(--primary) / 0.1));
+    --surface-nav: linear-gradient(to bottom, #ffffff, hsl(var(--primary) / 0.1));
+    --surface-sidebar: linear-gradient(to bottom, #ffffff, hsl(var(--primary) / 0.1));
+}
+
+/* Navy Theme Overrides */
+.dark.theme-navy {
+    /* Deep Navy Overrides */
+    --background: 222 49% 8%; /* #0B1120 */
+    --foreground: 210 40% 98%;
+    --card: 222 41% 14%; /* #151e32 */
+    --card-foreground: 210 40% 98%;
+    --popover: 222 41% 14%; /* #151e32 */
+    --popover-foreground: 210 40% 98%;
+    --secondary: 222 47% 11%; /* #0f172a - Sidebar/Slate 900 */
+    --secondary-foreground: 210 40% 98%;
+    --muted: 222 47% 11%; /* #0f172a */
+    --muted-foreground: 215 20% 65%;
+    --border: 215 32% 17%; /* #1e293b */
+    --input: 215 32% 17%;
+
+    --surface-app: linear-gradient(to bottom, hsl(var(--primary) / 0.0375), hsl(var(--primary) / 0.1125));
+    --surface-nav: linear-gradient(to bottom, hsl(var(--primary) / 0.0375), hsl(var(--primary) / 0.1125));
+    --surface-sidebar: linear-gradient(to bottom, hsl(var(--primary) / 0.0375), hsl(var(--primary) / 0.1125));
+}
+
+.light.theme-navy {
+    /* Light overrides for Navy theme */
+    --background: 210 40% 96.1%; /* #f1f5f9 - Slate 100 */
+    --foreground: 222 47% 11%; /* #0f172a - Slate 900 */
+    --card: 0 0% 100%; /* #ffffff */
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --secondary: 214 32% 91%; /* Slate 200 - light blue-gray background */
+    --secondary-foreground: 222 47% 11%; /* Slate 900 - matches foreground */
+    --muted: 214 32% 91%; /* Slate 200 - light blue-gray background */
+    --muted-foreground: 215 16% 47%; /* Slate 600 - medium blue-gray text */
+    --border: 214 32% 91%; /* Slate 200 */
+    --input: 214 32% 91%;
+
+    --surface-app: linear-gradient(to bottom, #ffffff, hsl(var(--primary) / 0.1));
+    --surface-nav: linear-gradient(to bottom, #ffffff, hsl(var(--primary) / 0.1));
+    --surface-sidebar: linear-gradient(to bottom, #ffffff, hsl(var(--primary) / 0.1));
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    html,
+    body {
+        @apply bg-background text-foreground;
+        height: 100%;
+        overflow: hidden;
+    }
+}
