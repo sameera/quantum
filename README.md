@@ -626,8 +626,6 @@ Integrated with React Hook Form for powerful form handling:
 
 ```tsx
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
 import {
     Form,
     FormControl,
@@ -639,14 +637,8 @@ import {
 import { Input } from "@sameera/quantum/components/input";
 import { Button } from "@sameera/quantum/components/button";
 
-const formSchema = z.object({
-    email: z.string().email(),
-    password: z.string().min(8),
-});
-
 function LoginForm() {
     const form = useForm({
-        resolver: zodResolver(formSchema),
         defaultValues: { email: "", password: "" },
     });
 
