@@ -47,3 +47,5 @@ vitest.config.*.timestamp*
 .github/instructions/nx.instructions.md
 **/env/.env.*
 **/.env
+*storybook.log
+storybook-static
