@@ -1,49 +1,55 @@
 /// <reference types='vitest' />
-import { nxCopyAssetsPlugin } from "@nx/vite/plugins/nx-copy-assets.plugin";
-import { nxViteTsPaths } from "@nx/vite/plugins/nx-tsconfig-paths.plugin";
 import react from "@vitejs/plugin-react-swc";
 import * as path from "path";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
+import { glob } from "glob";
 
 export default defineConfig({
     root: __dirname,
-    cacheDir: "../../../node_modules/.vite/libs/shared/quantum",
+    cacheDir: "./node_modules/.vite",
     plugins: [
         react(),
-        nxViteTsPaths(),
-        nxCopyAssetsPlugin(["*.md"]),
         dts({
             entryRoot: "src",
             tsconfigPath: path.join(__dirname, "tsconfig.lib.json"),
         }),
     ],
 
-    // Uncomment this if you are using workers.
-    // worker: {
-    //  plugins: [ nxViteTsPaths() ],
-    // },
-    // Configuration for building your library.
-    // See: https://vitejs.dev/guide/build.html#library-mode
     build: {
-        outDir: "../../../dist/libs/shared/quantum",
+        outDir: "./dist",
         emptyOutDir: true,
         reportCompressedSize: true,
+        sourcemap: true,
         commonjsOptions: {
             transformMixedEsModules: true,
         },
         lib: {
-            // Could also be a dictionary or array of multiple entry points.
-            entry: ["src/index.ts", "src/styles.ts"],
-            name: "@sameera/quantum",
-            fileName: "index",
-            // Change this to the formats you want to support.
-            // Don't forget to update your package.json as well.
+            entry: glob
+                .sync("src/**/*.{ts,tsx}", {
+                    ignore: [
+                        "src/**/*.test.tsx",
+                        "src/**/*.test.ts",
+                        "src/**/*.spec.tsx",
+                        "src/**/*.spec.ts",
+                    ],
+                })
+                .reduce((acc: Record<string, string>, file: string) => {
+                    const name = path
+                        .relative("src", file)
+                        .replace(/\.(ts|tsx)$/, "");
+                    acc[name] = file;
+                    return acc;
+                }, {} as Record<string, string>),
             formats: ["es"],
         },
         rollupOptions: {
-            // External packages that should not be bundled into your library.
             external: ["react", "react-dom", "react/jsx-runtime"],
+            output: {
+                entryFileNames: "[name].mjs",
+                chunkFileNames: "chunks/[name]-[hash].mjs",
+                assetFileNames: "assets/[name]-[hash][extname]",
+            },
         },
     },
     test: {
@@ -53,7 +59,7 @@ export default defineConfig({
         include: ["src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
         reporters: ["default"],
         coverage: {
-            reportsDirectory: "../../../coverage/libs/shared/quantum",
+            reportsDirectory: "./coverage",
             provider: "v8",
         },
     },
